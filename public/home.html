@@ -4,11 +4,67 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Trang chủ | Order Portal</title>
+  <link rel="stylesheet" href="/css/home.css">
   <script src="/js/home.js" defer></script>
 </head>
 <body>
-  <h1 id="greeting"></h1>
-  <button id="logout" type="button">Logout</button>
-  <p id="status" role="status"></p>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="/home.html" aria-label="Order Portal — Trang chủ">
+        <span class="brand-mark" aria-hidden="true">O<span></span></span>
+        <span>Order<span class="brand-light">Portal</span><small>CỔNG THÔNG TIN B2B</small></span>
+      </a>
+      <div class="account">
+        <span class="account-dot" aria-hidden="true"></span>
+        <span id="greeting"></span>
+        <a class="manage-orders" href="/staff.html">Quản lí đơn</a>
+        <button id="logout" class="logout" type="button">Đăng xuất <span aria-hidden="true">↗</span></button>
+      </div>
+    </div>
+  </header>
+  <main>
+    <p class="breadcrumb">Trang chủ <span aria-hidden="true">/</span> <span>Đơn hàng</span></p>
+    <div class="page-heading">
+      <div>
+        <p class="eyebrow">ĐƠN HÀNG</p>
+        <h1 id="order-heading">Sản phẩm cho đơn hàng<span>.</span></h1>
+        <p class="intro">Nhập tên sản phẩm, số lượng và ghi chú theo nhu cầu của bạn.</p>
+      </div>
+    </div>
+    <p id="status" class="account-status" role="status"></p>
+  <form id="order-form">
+  <section class="catalog" aria-labelledby="items-heading">
+    <div class="catalog-heading"><h2 id="items-heading">Chi tiết sản phẩm</h2><span id="item-count" class="catalog-note" aria-live="polite">0 sản phẩm</span></div>
+    <p id="empty-order" class="empty-order">Chưa có sản phẩm. Bấm “Thêm sản phẩm cho đơn hàng” để bắt đầu.</p>
+    <div id="order-items"></div>
+    <div class="add-product-area">
+      <button id="add-product" class="add-product" type="button">
+        <span class="add-product-icon" aria-hidden="true">+</span>
+        <span>Thêm sản phẩm cho đơn hàng</span>
+      </button>
+      <button id="submit-order" class="submit-order" type="submit">Xác nhận gửi đơn</button>
+    </div>
+      <p id="order-status" role="status" aria-live="polite"></p>
+  </section>
+  </form>
+  <template id="order-item-template">
+    <fieldset class="order-item">
+      <legend>Sản phẩm</legend>
+      <div class="item-fields">
+        <label class="item-field">Tên sản phẩm
+          <input name="product_name" type="text" placeholder="Nhập tên sản phẩm" required>
+        </label>
+        <label class="item-field">Số lượng
+          <input name="quantity" type="number" min="1" step="1" value="1" required>
+        </label>
+        <label class="item-field">Ghi chú
+          <input name="note" type="text" placeholder="Ghi chú cho sản phẩm (nếu có)">
+        </label>
+      </div>
+      <button class="remove-product" type="button">Xóa thẻ</button>
+    </fieldset>
+  </template>
+    <footer>Order Portal <span>Không gian kết nối doanh nghiệp</span></footer>
+  </main>
 </body>
 </html>
