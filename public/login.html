@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Đăng nhập | Order Portal</title>
+  <script src="/js/login.js" defer></script>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      background: #f1f5f9;
+      color: #172033;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    main {
+      width: 100%;
+      max-width: 420px;
+      padding: 36px;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      background: #fff;
+      box-shadow: 0 12px 36px #1720330d;
+    }
+    .brand { margin: 0 0 24px; color: #2563eb; font-weight: 700; }
+    h1 { margin: 0 0 8px; font-size: 28px; }
+    .description { margin: 0 0 28px; color: #64748b; line-height: 1.5; }
+    label { display: block; margin-bottom: 8px; font-size: 14px; font-weight: 600; }
+    input {
+      width: 100%;
+      padding: 12px 14px;
+      margin-bottom: 20px;
+      border: 1px solid #94a3b8;
+      border-radius: 8px;
+      font: inherit;
+    }
+    input:focus-visible, button:focus-visible { outline: 3px solid #93c5fd; outline-offset: 3px; }
+    button {
+      width: 100%;
+      padding: 13px;
+      border: 0;
+      border-radius: 8px;
+      background: #2563eb;
+      color: #fff;
+      font: inherit;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    button:hover { background: #1d4ed8; }
+    #status { margin: 16px 0 0; color: #475569; font-size: 14px; line-height: 1.5; }
+    #status:empty { display: none; }
+    @media (max-width: 440px) { main { padding: 24px; } }
+  </style>
+</head>
+<body>
+  <main>
+    <p class="brand">Order Portal</p>
+    <h1>Đăng nhập</h1>
+    <p class="description">Nhập thông tin tài khoản của bạn để tiếp tục.</p>
+    <form id="login-form" method="post">
+      <label for="user_name">Tên đăng nhập</label>
+      <input id="user_name" name="user_name" type="text" autocomplete="username" placeholder="Nhập tên đăng nhập" required>
+
+      <label for="password">Mật khẩu</label>
+      <input id="password" name="password" type="password" autocomplete="current-password" placeholder="Nhập mật khẩu" required>
+
+      <button type="submit">Đăng nhập</button>
+      <p id="status" role="status" aria-live="polite"></p>
+    </form>
+  </main>
+</body>
+</html>
